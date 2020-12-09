@@ -1,7 +1,7 @@
 import input
 import math
 
-data = input.read_data(str)
+data = input.get_data("5")
 
 def find_number_in_string(ranges, lower, upper, string):
     start = ranges
@@ -61,11 +61,15 @@ def find_missing_seat(seats):
         count += 1
         possible.append(seat)
 
-    print(possible)
+    return possible
         
         
 
 
 seats = find_all_seats(data, "both")
 seats.sort(key=lambda x: x[0])
-find_missing_seat(seats)
+part1 = find_highest_seat(data)
+part2 = find_missing_seat(seats)
+
+print("part1:", part1)
+print("part2:", part2[2][0] * 8 + part2[2][1])
