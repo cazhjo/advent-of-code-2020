@@ -9,8 +9,12 @@ def clear_file(file):
     file.seek(0)
     file.truncate()
 
-def get_data(day):
-    f = open("data.json", "r+")
+def get_data(day, demo=False):
+    file = "data.json" if not demo else "demo.txt"
+    f = open(file, "r+")
+
+    if demo:
+        return handle_data("".join(f.readlines()))
     data = json.load(f)
     dayInput = {}
 
