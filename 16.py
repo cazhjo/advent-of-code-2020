@@ -30,7 +30,6 @@ def count_of_invalid_fields(tickets, rules):
         else:
             invalid_numbers.append(int(ticket))
             count += 1
-    print(count)
     return reduce(lambda x, y: x + y, invalid_numbers), invalid_numbers
 
 def extract_tickets(tickets, filter_numbers):
@@ -63,7 +62,6 @@ def get_field_order(tickets, rules):
                     order[key].add(x)
                 else:
                     order[key] = {x}
-    print(len(order))
     return order
 
 def handle_orders(orders):
@@ -87,7 +85,7 @@ def product_of_departure(ticket, orders):
     return product
 
 part1 = count_of_invalid_fields(data, extract_rules(rules))
-print(part1[0])
 data = extract_tickets(data, part1[1])
 orders = handle_orders((get_field_order(data, extract_rules(rules))))
-print(product_of_departure(ticket, orders))
+print("Part1:", part1[0])
+print("Part2:", product_of_departure(ticket, orders))
